@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Отзывы</title>
+   <h1><a href="file:///C:/Users/User/Desktop/sit/index.html" class="button">Главная</a></h1>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+        }
+
+        .carousel-container {
+            width: 1000px;
+            height: 700px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .carousel-slide img {
+            max-width: 100%; /* Уменьшенная ширина фотографий */
+            max-height: 100%; /* Уменьшенная высота фотографий */
+            object-fit: cover;
+        }
+
+        .carousel-navigation {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+        }
+
+        .carousel-navigation button {
+            background: transparent;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 5px;
+            margin: 0 5px;
+        }
+
+        .caption {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 50ыx;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .caption::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            background-color: black;
+            bottom: -4px;
+            transform: scaleX(0.8) skewX(-20deg);
+        }
+    </style>
+</head>
+<body>
+<div class="carousel-container">
+    <div class="carousel-slide">
+        <img src="ot.png" alt="Фото 1">
+        <img src="header-responses.jpg" alt="Фото 2">
+        <img src="html-shablon-preview-522658.jpg" alt="Фото 3">
+    </div>
+
+    <div class="carousel-navigation">
+        <button onclick="prevSlide()">&#10094;</button>
+        <button onclick="nextSlide()">&#10095;</button>
+    </div>
+</div>
+
+<script>
+    var slideIndex = 0;
+    var slides = document.getElementsByClassName("carousel-slide")[0].getElementsByTagName("img");
+
+    function showSlide() {
+        for (var i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[slideIndex].style.display = "block";
+    }
+
+    function nextSlide() {
+        slideIndex++;
+        if (slideIndex >= slides.length) {
+            slideIndex = 0;
+        }
+        showSlide();
+    }
+
+    function prevSlide() {
+        slideIndex--;
+        if (slideIndex < 0) {
+            slideIndex = slides.length - 1;
+        }
+        showSlide();
+    }
+
+    showSlide();
+</script>
+</body>
+</html>
